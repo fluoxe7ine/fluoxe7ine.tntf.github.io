@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+body {
+  background-color: #9dbae8;
+}
+
+header {
+  text-align: center;
+}
+
+.content {
+  background: #fff;
+  width: 50%;
+  height: 500px;
+  margin: auto;
+  position: absolute;
+  left: 25%;
+}
+
+.left {
+  width: 50%;
+  height: 100px;
+  background: #15a32c;
+  float: left;
+  margin-bottom: 0;
+  margin-top: 53px;
+}
+
+.left:hover{
+  background: #41e25b;
+}
+
+.right {
+  width: 50%;
+  height: 100px;
+  background: #c6160f;
+  float: left;
+  margin-bottom: 0;
+  margin-top: 53px;
+}
+
+.right:hover {
+  background: #e22f28;
+}
+
+.left p {
+  color: white;
+  font-weight: bold;
+  font-size: 300%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: Comfortaa;
+}
+
+.right p {
+  color: white;
+  font-weight: bold;
+  font-size: 300%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: Comfortaa;
+}
+
+.content .name {
+  width: 80%;
+  height: 150px;
+  background: #9dbae8;
+  position: relative;
+  top: 70px;
+  left: 10%;
+  border-radius: 20px;
+  border-color: black;
+  z-index: 1;
+}
+
+header h1 {
+  font-family: Comfortaa,sans-serif;
+}
+
+#change {
+  font-size: 300%;
+  font-family: Roboto,sans-serif;
+  font-weight: bold;
+  position: relative;
+  top: 25%;
+}
+
+#counter {
+  z-index: 999;
+  position: relative;
+  top:70px;
+  font-family: Comfortaa,sans-serif;
+  font-size: 300%;
+  font-weight: bold;
+}
