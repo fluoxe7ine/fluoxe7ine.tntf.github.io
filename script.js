@@ -3,14 +3,19 @@
 let indexOfRandomName = getRandomArbitary(1, 8);
 let indexOfRandomColor = getRandomArbitary(1, 8);
 let counter = 0;
+let time = 7000;
 
 const elem = document.getElementById('change');
 const tick = document.getElementById('counter');
+const timerCount = document.getElementById('timer');
+
 
 tick.innerHTML = '0';
 
 swapRandomName();
 swapRandomColor();
+timer();
+time = 700;
 
 function getRandomArbitary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -27,8 +32,10 @@ function truth() {
   if (indexOfRandomName === indexOfRandomColor) {
     counter++;
     generateNewWord();
+    time = 700;
   } else {
     counter = 0;
+    time = 700;
     generateNewWord();
   }
   console.log('counter ' + counter);
@@ -39,9 +46,11 @@ function untruth() {
   if (indexOfRandomName !== indexOfRandomColor) {
     counter++;
     generateNewWord();
+    time = 700;
   } else {
     counter = 0;
     generateNewWord();
+    time = 700;
   }
   console.log('counter ' + counter);
   tick.innerHTML = (counter);
@@ -99,6 +108,23 @@ function swapRandomColor() {
       break;
     default:
   }
+}
+
+function timer() {
+time = 700;
+let fnc = setInterval(function() {
+    time--;
+    timerCount.innerHTML = time;
+    if (time <= 0) {
+        clearInterval(fnc);
+        counter = 0;
+        time = 7000;
+        tick.innerHTML = (counter);
+        alert('Game Over');
+        location.reload();
+
+    };
+}, 1);
 }
 
 document.onkeypress = function(event) {
