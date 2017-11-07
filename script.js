@@ -2,41 +2,64 @@
 
 let indexOfRandomName = getRandomArbitary(1, 8);
 let indexOfRandomColor = getRandomArbitary(1, 8);
+let indexOfTrueFalse = getRandomArbitary(0, 2);
 let counter = 0;
-let time = 240;
+let time = 100;
 let shift = 100;
-
+console.log(indexOfTrueFalse);
 const elem = document.getElementById('change');
 const tick = document.getElementById('counter');
 const line = document.getElementById('timer');
 
 tick.innerHTML = '0';
+generateNewWord();
 
-swapRandomName();
-swapRandomColor();
 timer();
-time = 240;
+time = 100;
 
 function getRandomArbitary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
 function generateNewWord() {
+  indexOfTrueFalse = getRandomArbitary(0, 2);
   indexOfRandomName = getRandomArbitary(1, 8);
   indexOfRandomColor = getRandomArbitary(1, 8);
-  swapRandomName();
-  swapRandomColor();
+
+  console.log(indexOfTrueFalse);
+  if (indexOfTrueFalse === 1) {
+    while (indexOfRandomName !== indexOfRandomColor) {
+      indexOfRandomName = getRandomArbitary(1, 8);
+      indexOfRandomColor = getRandomArbitary(1, 8);
+    }
+    swapRandomName();
+    swapRandomColor();
+  }
+
+  if (indexOfTrueFalse === 0) {
+    while (indexOfRandomName === indexOfRandomColor) {
+      indexOfRandomName = getRandomArbitary(1, 8);
+      indexOfRandomColor = getRandomArbitary(1, 8);
+    }
+    swapRandomName();
+    swapRandomColor();
+  }
+
+  // indexOfRandomName = getRandomArbitary(1, 8);
+  // indexOfRandomColor = getRandomArbitary(1, 8);
+  // swapRandomName();
+  // swapRandomColor();
 }
 
 function truth() {
   if (indexOfRandomName === indexOfRandomColor) {
     counter++;
     generateNewWord();
-    time = 240;
+    time = 100;
     shift = 100;
   } else {
     counter = 0;
-    time = 240;
+    time = 100;
     shift = 100;
     generateNewWord();
   }
@@ -48,12 +71,12 @@ function untruth() {
   if (indexOfRandomName !== indexOfRandomColor) {
     counter++;
     generateNewWord();
-    time = 240;
+    time = 100;
     shift = 100;
   } else {
     counter = 0;
     generateNewWord();
-    time = 240;
+    time = 100;
     shift = 100;
   }
   console.log('counter ' + counter);
@@ -115,7 +138,7 @@ function swapRandomColor() {
 }
 
 function timer() {
-  time = 240;
+  time = 100;
   const fnc = setInterval(() => {
     time--;
     shift--;
@@ -123,14 +146,12 @@ function timer() {
     if (time <= 0) {
       clearInterval(fnc);
       counter = 0;
-      time = 240;
+      time = 100;
       shift = 100;
       tick.innerHTML = (counter);
-      // alert('Game Over');
-      location.reload();
-
+      return timer(), generateNewWord();
     }
-  }, 1);
+  }, 10);
 }
 
 document.onkeydown = function(event) {
