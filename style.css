@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
 body {
-  background-color: #9dbae8;
+  background: url('http://www.fullhdoboi.ru/_ph/6/845956010.jpg?1507145152');
 }
 
 header {
@@ -8,87 +10,79 @@ header {
 }
 
 .content {
-  background: #fff;
   width: 50%;
   height: 500px;
   margin: auto;
-  position: absolute;
-  left: 25%;
+  text-align: center;
 }
 
 .left {
-  width: 50%;
+  border: 2px solid white;
+  width: 40%;
   height: 100px;
-  background: #15a32c;
   float: left;
   margin-bottom: 0;
-  margin-top: 53px;
-}
-
-.left:hover{
-  background: #41e25b;
+  margin-top: 10px;
+  border-color: #41e25b;
 }
 
 .right {
-  width: 50%;
+  width: 40%;
   height: 100px;
-  background: #c6160f;
-  float: left;
+  border: 2px solid white;
+  float: right;
   margin-bottom: 0;
-  margin-top: 53px;
-}
-
-.right:hover {
-  background: #e22f28;
+  margin-top: 10px;
+  border-color: #e22f28;
 }
 
 .left p {
   color: white;
-  font-weight: bold;
   font-size: 300%;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-family: Comfortaa;
+  font-family: Alegreya Sans;
 }
 
 .right p {
   color: white;
-  font-weight: bold;
   font-size: 300%;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-family: Comfortaa;
+  font-family: Alegreya Sans;
 }
 
-.content .name {
+.name {
   width: 80%;
+  margin: auto;
   height: 150px;
-  background: #9dbae8;
-  position: relative;
-  top: 70px;
-  left: 10%;
-  border-radius: 20px;
-  border-color: black;
+  top: 35px;
   z-index: 1;
+
 }
 
 header h1 {
-  font-family: Comfortaa,sans-serif;
+  font-family: 'Exo 2',sans-serif;
+  color: white;
 }
 
 #change {
-  font-size: 300%;
-  font-family: Roboto,sans-serif;
-  font-weight: bold;
+  font-size: 400%;
+  font-family: 'Exo 2';
   position: relative;
-  top: 25%;
 }
 
 #counter {
+  color : white;
   z-index: 999;
   position: relative;
-  top:70px;
-  font-family: Comfortaa,sans-serif;
+  font-family: 'Exo 2',sans-serif;
   font-size: 300%;
   font-weight: bold;
+}
+
+#timer {
+  width: 100%;
+  height: 25px;
+  background: white;
 }

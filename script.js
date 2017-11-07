@@ -3,19 +3,19 @@
 let indexOfRandomName = getRandomArbitary(1, 8);
 let indexOfRandomColor = getRandomArbitary(1, 8);
 let counter = 0;
-let time = 7000;
+let time = 240;
+let shift = 100;
 
 const elem = document.getElementById('change');
 const tick = document.getElementById('counter');
-const timerCount = document.getElementById('timer');
-
+const line = document.getElementById('timer');
 
 tick.innerHTML = '0';
 
 swapRandomName();
 swapRandomColor();
 timer();
-time = 700;
+time = 240;
 
 function getRandomArbitary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -32,10 +32,12 @@ function truth() {
   if (indexOfRandomName === indexOfRandomColor) {
     counter++;
     generateNewWord();
-    time = 700;
+    time = 240;
+    shift = 100;
   } else {
     counter = 0;
-    time = 700;
+    time = 240;
+    shift = 100;
     generateNewWord();
   }
   console.log('counter ' + counter);
@@ -46,11 +48,13 @@ function untruth() {
   if (indexOfRandomName !== indexOfRandomColor) {
     counter++;
     generateNewWord();
-    time = 700;
+    time = 240;
+    shift = 100;
   } else {
     counter = 0;
     generateNewWord();
-    time = 700;
+    time = 240;
+    shift = 100;
   }
   console.log('counter ' + counter);
   tick.innerHTML = (counter);
@@ -111,23 +115,25 @@ function swapRandomColor() {
 }
 
 function timer() {
-time = 700;
-let fnc = setInterval(function() {
+  time = 240;
+  const fnc = setInterval(() => {
     time--;
-    timerCount.innerHTML = time;
+    shift--;
+    line.style.width = shift + '%';
     if (time <= 0) {
-        clearInterval(fnc);
-        counter = 0;
-        time = 7000;
-        tick.innerHTML = (counter);
-        alert('Game Over');
-        location.reload();
+      clearInterval(fnc);
+      counter = 0;
+      time = 240;
+      shift = 100;
+      tick.innerHTML = (counter);
+      // alert('Game Over');
+      location.reload();
 
-    };
-}, 1);
+    }
+  }, 1);
 }
 
-document.onkeypress = function(event) {
-  if (event.keyCode === 100) untruth();
-  if (event.keyCode === 97) truth();
+document.onkeydown = function(event) {
+  if (event.keyCode === 39) untruth();
+  if (event.keyCode === 37) truth();
 };
