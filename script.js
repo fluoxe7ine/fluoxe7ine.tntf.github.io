@@ -86,25 +86,25 @@ function untruth() {
 function swapRandomName() {
   switch (indexOfRandomName) {
     case 1:
-      elem.innerHTML = 'Красный';
+      elem.innerHTML = 'Red';
       break;
     case 2:
-      elem.innerHTML = 'Синий';
+      elem.innerHTML = 'Blue';
       break;
     case 3:
-      elem.innerHTML = 'Желтый';
+      elem.innerHTML = 'Yellow';
       break;
     case 4:
-      elem.innerHTML = 'Белый';
+      elem.innerHTML = 'White';
       break;
     case 5:
-      elem.innerHTML = 'Зеленый';
+      elem.innerHTML = 'Green';
       break;
     case 6:
-      elem.innerHTML = 'Фиолетовый';
+      elem.innerHTML = 'Purple';
       break;
     case 7:
-      elem.innerHTML = 'Оранжевый';
+      elem.innerHTML = 'Orange';
       break;
     default:
   }
