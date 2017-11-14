@@ -24,6 +24,7 @@ header {
   margin-bottom: 0;
   margin-top: 10px;
   border-color: #41e25b;
+  color: white;
 }
 
 .right {
@@ -34,10 +35,10 @@ header {
   margin-bottom: 0;
   margin-top: 10px;
   border-color: #e22f28;
+  color: white;
 }
 
 .left p {
-  color: white;
   font-size: 300%;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -45,7 +46,6 @@ header {
 }
 
 .right p {
-  color: white;
   font-size: 300%;
   margin-top: 25px;
   margin-bottom: 25px;
