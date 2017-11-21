@@ -204,11 +204,11 @@ header h1 {
   margin: auto;
   width: 50px;
   height: 50px;
-  background-image: url(media/img/again.png);
+  background-image: url('media/img/again.png');
   cursor: pointer;
 }
 
 #reload:hover {
   transform: scale(1.2);
-  background-image: url(media/img/again-hover.png);
+  background-image: url('media/img/again-hover.png');
 }
