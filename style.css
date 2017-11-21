@@ -199,3 +199,16 @@ header h1 {
   font-family: 'Exo 2', sans-serif;
   font-size: 200%;
 }
+
+#reload {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  background: url(media/img/again.png);
+  cursor: pointer;
+}
+
+#reload:hover {
+  transform: scale(1.2);
+  background: url(media/img/again-hover.png);
+}

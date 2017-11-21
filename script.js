@@ -96,6 +96,7 @@ const line = document.getElementById('timer');
 
 const timer = () => {
   time = 100;
+  score = 0;
   const fnc = setInterval(() => {
     time--;
     shift--;
@@ -103,8 +104,6 @@ const timer = () => {
     if (time <= 0) {
       clearInterval(fnc);
       counter = 0;
-      // time = 100;
-      // shift = 100;
       tick.innerHTML = (counter);
       return generateNewWord(), endGame();
     }
@@ -148,8 +147,8 @@ const truth = () => {
     shift = 100;
   } else {
     counter = 0;
-    time = 100;
-    shift = 100;
+    time = 0;
+    shift = 0;
     generateNewWord();
     endGame();
   }
@@ -168,8 +167,8 @@ const untruth = () => {
   } else {
     counter = 0;
     generateNewWord();
-    time = 100;
-    shift = 100;
+    time = 0;
+    shift = 0;
     endGame();
   }
   rightButtonClick();
@@ -234,9 +233,18 @@ const mouseAnimation = () => {
 const endGame = () => {
   document.getElementById('endmenu-content').style.visibility = 'visible';
   document.getElementById('preloader').style.visibility = 'visible';
+  document.getElementById('score').style.visibility = 'visible';
   document.getElementById('score').innerHTML = 'Your score: ' + score;
 }
 
+const reload = () => {
+  document.getElementById('endmenu-content').style.visibility = 'hidden';
+  document.getElementById('preloader').style.visibility = 'hidden';
+  document.getElementById('score').style.visibility = 'hidden';
+  time = 100;
+  shift = 100;
+  timer();
+}
 
 mouseAnimation();
 arrowAnimation();
