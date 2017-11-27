@@ -140,7 +140,8 @@ header h1 {
 }
 
 #start p {
-  margin-top: 10%;
+  margin: 0;
+  margin-top: 5%;
 }
 
 #start:hover{

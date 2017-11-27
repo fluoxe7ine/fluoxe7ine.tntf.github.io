@@ -4,86 +4,36 @@ let score = 0;
 const getRandomArbitary = (min, max) =>
   Math.floor(Math.random() * (max - min) + min);
 
-let indexOfRandomName = getRandomArbitary(1, 8);
-let indexOfRandomColor = getRandomArbitary(1, 8);
+let indexOfRandomName = getRandomArbitary(0, 7);
+let indexOfRandomColor = getRandomArbitary(0, 7);
 let indexOfTrueFalse = getRandomArbitary(0, 2);
 const elem = document.getElementById('change');
+const colors = ['Red', 'Blue', 'Yellow', 'White', 'Green', 'Purple', 'Orange'];
 
-const swapRandomName = () => {
-  switch (indexOfRandomName) {
-    case 1:
-      elem.innerHTML = 'Red';
-      break;
-    case 2:
-      elem.innerHTML = 'Blue';
-      break;
-    case 3:
-      elem.innerHTML = 'Yellow';
-      break;
-    case 4:
-      elem.innerHTML = 'White';
-      break;
-    case 5:
-      elem.innerHTML = 'Green';
-      break;
-    case 6:
-      elem.innerHTML = 'Purple';
-      break;
-    case 7:
-      elem.innerHTML = 'Orange';
-      break;
-    default:
-  }
-};
-
-function swapRandomColor() {
-  switch (indexOfRandomColor) {
-    case 1:
-      elem.style.color = 'red';
-      break;
-    case 2:
-      elem.style.color = 'blue';
-      break;
-    case 3:
-      elem.style.color = 'yellow';
-      break;
-    case 4:
-      elem.style.color = 'white';
-      break;
-    case 5:
-      elem.style.color = 'green';
-      break;
-    case 6:
-      elem.style.color = 'purple';
-      break;
-    case 7:
-      elem.style.color = 'orange';
-      break;
-    default:
-  }
+const swapRandom = () => {
+  elem.innerHTML = `${colors[indexOfRandomName]}`;
+  elem.style.color = `${colors[indexOfRandomColor]}`;
 }
 
 const generateNewWord = () => {
   indexOfTrueFalse = getRandomArbitary(0, 2);
-  indexOfRandomName = getRandomArbitary(1, 8);
-  indexOfRandomColor = getRandomArbitary(1, 8);
+  indexOfRandomName = getRandomArbitary(0, 7);
+  indexOfRandomColor = getRandomArbitary(0, 7);
 
   if (indexOfTrueFalse === 1) {
     while (indexOfRandomName !== indexOfRandomColor) {
-      indexOfRandomName = getRandomArbitary(1, 8);
-      indexOfRandomColor = getRandomArbitary(1, 8);
+      indexOfRandomName = getRandomArbitary(0, 7);
+      indexOfRandomColor = getRandomArbitary(0, 7);
     }
-    swapRandomName();
-    swapRandomColor();
+    swapRandom();
   }
 
   if (indexOfTrueFalse === 0) {
     while (indexOfRandomName === indexOfRandomColor) {
-      indexOfRandomName = getRandomArbitary(1, 8);
-      indexOfRandomColor = getRandomArbitary(1, 8);
+      indexOfRandomName = getRandomArbitary(0, 7);
+      indexOfRandomColor = getRandomArbitary(0, 7);
     }
-    swapRandomName();
-    swapRandomColor();
+    swapRandom();
   }
 };
 
@@ -100,7 +50,7 @@ const timer = () => {
   const fnc = setInterval(() => {
     time--;
     shift--;
-    line.style.width = shift + '%';
+    line.style.width = `${shift}%`;
     if (time <= 0) {
       clearInterval(fnc);
       counter = 0;
@@ -221,11 +171,11 @@ const mouseAnimation = () => {
   setInterval(() => {
     let shifting = 0;
     shifting -= 25;
-    mouse.style.left = shifting + 'px';
+    mouse.style.left = `${shifting}px`;
     setTimeout(() => {
       let shifting = 0;
       shifting += 50;
-      mouse.style.left = shifting + 'px';
+      mouse.style.left = `${shifting}px`;
     },1000);
   }, 2000);
 }
@@ -234,7 +184,7 @@ const endGame = () => {
   document.getElementById('endmenu-content').style.visibility = 'visible';
   document.getElementById('preloader').style.visibility = 'visible';
   document.getElementById('score').style.visibility = 'visible';
-  document.getElementById('score').innerHTML = 'Your score: ' + score;
+  document.getElementById('score').innerHTML = `Your score: ${score}`;
 }
 
 const reload = () => {
