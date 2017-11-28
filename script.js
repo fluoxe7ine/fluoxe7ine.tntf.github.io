@@ -1,19 +1,25 @@
 'use strict';
 
 let score = 0;
+
+//function of random
 const getRandomArbitary = (min, max) =>
   Math.floor(Math.random() * (max - min) + min);
 
-let indexOfRandomName = getRandomArbitary(0, 7);
-let indexOfRandomColor = getRandomArbitary(0, 7);
-let indexOfTrueFalse = getRandomArbitary(0, 2);
 const elem = document.getElementById('change');
+
+//add colors here
 const colors = ['Red', 'Blue', 'Yellow', 'White', 'Green', 'Purple', 'Orange'];
+
+//randomize indexes
+let indexOfRandomName = getRandomArbitary(0, colors.length);
+let indexOfRandomColor = getRandomArbitary(0, colors.length);
+let indexOfTrueFalse = getRandomArbitary(0, 2);
 
 const swapRandom = () => {
   elem.innerHTML = `${colors[indexOfRandomName]}`;
   elem.style.color = `${colors[indexOfRandomColor]}`;
-}
+};
 
 const generateNewWord = () => {
   indexOfTrueFalse = getRandomArbitary(0, 2);
@@ -135,19 +141,29 @@ time = 100;
 const leftArrow = document.getElementById('arrow-left');
 const rightArrow = document.getElementById('arrow-right');
 const mouse = document.getElementById('mouse');
+const preloader = document.getElementById('preloader');
+const blur = document.getElementById('blur');
+const startButton = document.getElementById('start');
+const menuContent = document.getElementById('menu-content');
+
+const startComponents = [preloader, startButton, menuContent, mouse];
+
+const hide = (array) => {
+  array.map((component) => component.style.visibility = 'hidden');
+};
+
+const appear = (array) => {
+  array.map((component) => component.style.visibility = 'visible');
+};
 
 const start = () => {
   timer();
-  document.getElementById('preloader').style.visibility = 'hidden';
-  document.getElementById('blur').style.filter = 'none';
-  document.getElementById('start').style.visibility = 'hidden';
-  document.getElementById('menu-content').style.visibility = 'hidden';
+  hide(startComponents);
+  blur.style.filter = 'none';
   mouse.style.transition = 'none';
-  mouse.style.visibility = 'hidden';
 };
 
-
-  document.onkeydown = (e) => {
+document.onkeydown = (e) => {
   if (event.keyCode === 39) untruth();
   if (event.keyCode === 37) truth();
 };
@@ -176,25 +192,25 @@ const mouseAnimation = () => {
       let shifting = 0;
       shifting += 50;
       mouse.style.left = `${shifting}px`;
-    },1000);
+    }, 1000);
   }, 2000);
-}
+};
+
+const points = document.getElementById('score');
+const endMenu = document.getElementById('endmenu-content');
+const reloadComponents = [preloader, points, endMenu];
 
 const endGame = () => {
-  document.getElementById('endmenu-content').style.visibility = 'visible';
-  document.getElementById('preloader').style.visibility = 'visible';
-  document.getElementById('score').style.visibility = 'visible';
+  appear(reloadComponents);
   document.getElementById('score').innerHTML = `Your score: ${score}`;
-}
+};
 
 const reload = () => {
-  document.getElementById('endmenu-content').style.visibility = 'hidden';
-  document.getElementById('preloader').style.visibility = 'hidden';
-  document.getElementById('score').style.visibility = 'hidden';
+  hide(reloadComponents);
   time = 100;
   shift = 100;
   timer();
-}
+};
 
 mouseAnimation();
 arrowAnimation();
