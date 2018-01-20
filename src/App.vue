@@ -16,5 +16,17 @@ export default {
 
 body {
   background: url('http://www.fullhdoboi.ru/_ph/6/845956010.jpg?1507145152');
+  text-decoration: none;
 }
+
+A {
+   color: white;
+   text-decoration: none;
+  }
+A:visited {
+   color: white;
+   text-decoration: none;
+  }
+
+
 </style>

@@ -16,9 +16,11 @@
         <img src="../assets/mouse.png" alt="">
       </div>
       <p id="toScorePoints">TO SCORE POINTS</p>
-      <div class="start-button">
-        <p>START</p>
+      <router-link to="/game">
+        <div class="start-button">
+          <p>START</p>
       </div>
+      </router-link>
     </div>
     <div class="start-menu-opacity"></div>
   </div>
