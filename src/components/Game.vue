@@ -7,11 +7,11 @@
       <h1>Does the color match to its name?</h1>
       <div class="time-line" :style="{width: lineWidth + '%'}"></div>
       <p id="match" :style="{color: colorstyle}">{{ color }}</p>
-      <p id="counter">COUNTER</p>
-      <div class="left-button">
+      <p id="counter">{{counter}}</p>
+      <div class="left-button" @click="buttonLeftClick()">
         <p>TRUE</p>
       </div>
-      <div class="right-button">
+      <div class="right-button" @click="buttonRightClick()">
         <p>FALSE</p>
       </div>
     </div>
@@ -28,22 +28,50 @@ export default {
     return {
       lineWidth: 100,
       color: 'sample',
-      colorstyle: null
+      colorstyle: null,
+      match: null,
+      counter: 0
     }
   },
   created () {
-      (Math.random() <= 0.5) ? this.generatingTrueMatch() : this.generatingFalseMatch()
-      // this.randomName()
-      // this.timerId = window.setInterval(() => {
-      //   this.lineWidth--
-      //   if (this.lineWidth === 0) {
-      //     clearInterval(this.timerId)
-      //     this.color = 'Game nahui over'
-      //   }
-      //   console.log(this.lineWidth)
-      // }, 15)
+      this.generatingMatch()
+      this.timer()
   },
   methods: {
+    timer () {
+      this.timerId = window.setInterval(() => {
+        this.lineWidth--
+        if (this.lineWidth === 0) {
+          clearInterval(this.timerId)
+          this.color = 'Game nahui over'
+        }
+      }, 150)
+    },
+    buttonLeftClick () {
+      if (this.match === true) {
+        this.counter++
+        this.generatingMatch()
+        this.lineWidth = 100
+      } else this.counter = 0
+    },
+    buttonRightClick () {
+      if (this.match === false) {
+        this.counter++
+        this.generatingMatch()
+        this.lineWidth = 100
+      } else this.counter = 0
+    },
+    generatingMatch () {
+      if (Math.random() <= 0.5) {
+        this.generatingTrueMatch()
+        this.match = true
+        console.log(this.match);
+      }  else {
+        this.generatingFalseMatch()
+        this.match = false
+        console.log(this.match);
+      }
+    },
     generatingTrueMatch () {
       this.colorNames = ['blue', 'red', 'yellow', 'green', 'orange', 'purple']
       this.rand = Math.floor(Math.random() * this.colorNames.length)
@@ -55,13 +83,8 @@ export default {
       this.colorStyles = ['green', 'orange', 'purple']
       this.randName = Math.floor(Math.random() * this.colorNames.length)
       this.randColor = Math.floor(Math.random() * this.colorStyles.length)
-      if (this.randName === this.randColor) {
-        this.color = this.colorNames[this.randName]
-        this.colorstyle = this.colorNames[this.randColor];
-      } else {
-        this.color = this.colorNames[this.randColor]
-        this.colorstyle = this.colorNames[this.randName];
-      }
+      this.color = this.colorNames[this.randName]
+      this.colorstyle = this.colorStyles[this.randColor]
     }
   }
 }
