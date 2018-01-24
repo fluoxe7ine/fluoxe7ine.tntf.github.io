@@ -5,8 +5,8 @@
     </div>
     <div class="content">
       <h1>Does the color match to its name?</h1>
-      <div class="time-line"></div>
-      <p id="match">Color</p>
+      <div class="time-line" :style="{width: lineWidth + '%'}"></div>
+      <p id="match" :style="{color: colorstyle}">{{ color }}</p>
       <p id="counter">COUNTER</p>
       <div class="left-button">
         <p>TRUE</p>
@@ -26,7 +26,42 @@ export default {
   name: 'Game',
   data () {
     return {
-
+      lineWidth: 100,
+      color: 'sample',
+      colorstyle: null
+    }
+  },
+  created () {
+      (Math.random() <= 0.5) ? this.generatingTrueMatch() : this.generatingFalseMatch()
+      // this.randomName()
+      // this.timerId = window.setInterval(() => {
+      //   this.lineWidth--
+      //   if (this.lineWidth === 0) {
+      //     clearInterval(this.timerId)
+      //     this.color = 'Game nahui over'
+      //   }
+      //   console.log(this.lineWidth)
+      // }, 15)
+  },
+  methods: {
+    generatingTrueMatch () {
+      this.colorNames = ['blue', 'red', 'yellow', 'green', 'orange', 'purple']
+      this.rand = Math.floor(Math.random() * this.colorNames.length)
+      this.color = this.colorNames[this.rand]
+      this.colorstyle = this.colorNames[this.rand]
+    },
+    generatingFalseMatch () {
+      this.colorNames = ['blue', 'red', 'yellow']
+      this.colorStyles = ['green', 'orange', 'purple']
+      this.randName = Math.floor(Math.random() * this.colorNames.length)
+      this.randColor = Math.floor(Math.random() * this.colorStyles.length)
+      if (this.randName === this.randColor) {
+        this.color = this.colorNames[this.randName]
+        this.colorstyle = this.colorNames[this.randColor];
+      } else {
+        this.color = this.colorNames[this.randColor]
+        this.colorstyle = this.colorNames[this.randName];
+      }
     }
   }
 }
@@ -58,10 +93,9 @@ export default {
   right: 0;
 }
 #counter{
-  position: absolute;
-  top:55%;
-  left: 40%;
-  font-size:200%;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 200%;
   font-weight: bold;
 }
 
@@ -103,9 +137,8 @@ export default {
 }
 
 #match{
-  position: absolute;
-  top: 25%;
-  left: 38%;
-  font-size: 400%;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 300%;
 }
 </style>
