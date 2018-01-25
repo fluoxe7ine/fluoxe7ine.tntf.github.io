@@ -46,9 +46,10 @@ export default {
         this.lineWidth--
         if (this.lineWidth === 0) {
           clearInterval(this.timerId)
-          this.color = 'Game nahui over'
+          this.$root.score = this.counter
+          this.$router.push('/restart')
         }
-      }, 150)
+      }, 13)
     },
     buttonLeftClick () {
       if (this.match === true) {
@@ -56,8 +57,9 @@ export default {
         this.generatingMatch()
         this.lineWidth = 100
       } else {
+        this.$root.score = this.counter
         this.counter = 0
-        this.$router.push('/') //rewrite
+        this.$router.push('/restart')
       }
     },
     buttonRightClick () {
@@ -65,7 +67,11 @@ export default {
         this.counter++
         this.generatingMatch()
         this.lineWidth = 100
-      } else this.counter = 0
+      } else {
+        this.$root.score = this.counter
+        this.counter = 0
+        this.$router.push('/restart')
+      }
     },
     generatingMatch () {
       if (Math.random() <= 0.5) {
