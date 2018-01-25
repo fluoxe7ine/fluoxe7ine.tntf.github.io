@@ -16,7 +16,6 @@
       </div>
     </div>
     <div class="right-side">
-
     </div>
   </div>
 </template>
@@ -34,8 +33,12 @@ export default {
     }
   },
   created () {
-      this.generatingMatch()
-      this.timer()
+    this.generatingMatch()
+    this.timer()
+    document.onkeydown = (e) => {
+      if (event.keyCode === 39) this.buttonRightClick()
+      if (event.keyCode === 37) this.buttonLeftClick()
+    }
   },
   methods: {
     timer () {
@@ -52,7 +55,10 @@ export default {
         this.counter++
         this.generatingMatch()
         this.lineWidth = 100
-      } else this.counter = 0
+      } else {
+        this.counter = 0
+        this.$router.push('/') //rewrite
+      }
     },
     buttonRightClick () {
       if (this.match === false) {
@@ -65,11 +71,11 @@ export default {
       if (Math.random() <= 0.5) {
         this.generatingTrueMatch()
         this.match = true
-        console.log(this.match);
-      }  else {
+        console.log(this.match)
+      } else {
         this.generatingFalseMatch()
         this.match = false
-        console.log(this.match);
+        console.log(this.match)
       }
     },
     generatingTrueMatch () {
