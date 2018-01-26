@@ -6,7 +6,7 @@
     <div class="content">
       <h1>Does the color match to its name?</h1>
       <div class="time-line" :style="{width: lineWidth + '%'}"></div>
-      <p id="match" :style="{color: colorstyle}">{{ color }}</p>
+      <p id="match" :style="{color: colorstyle}">{{ color | capitalize }}</p>
       <p id="counter">{{counter}}</p>
       <div class="left-button" @click="buttonLeftClick()">
         <p>TRUE</p>
@@ -30,6 +30,12 @@ export default {
       colorstyle: null,
       match: null,
       counter: 0
+    }
+  },
+  filters: {
+    capitalize (value) {
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
     }
   },
   created () {
@@ -57,6 +63,7 @@ export default {
         this.generatingMatch()
         this.lineWidth = 100
       } else {
+        clearInterval(this.timerId)
         this.$root.score = this.counter
         this.counter = 0
         this.$router.push('/restart')
@@ -68,6 +75,7 @@ export default {
         this.generatingMatch()
         this.lineWidth = 100
       } else {
+        clearInterval(this.timerId)
         this.$root.score = this.counter
         this.counter = 0
         this.$router.push('/restart')
