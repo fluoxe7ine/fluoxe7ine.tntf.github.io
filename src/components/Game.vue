@@ -21,6 +21,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Game',
   data () {
@@ -29,7 +30,8 @@ export default {
       color: 'sample',
       colorstyle: null,
       match: null,
-      counter: 0
+      counter: 0,
+      highscores
     }
   },
   filters: {
@@ -45,6 +47,7 @@ export default {
       if (event.keyCode === 39) this.buttonRightClick()
       if (event.keyCode === 37) this.buttonLeftClick()
     }
+    console.log(highscores);
   },
   methods: {
     timer () {
