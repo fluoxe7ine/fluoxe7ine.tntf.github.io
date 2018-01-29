@@ -1,27 +1,52 @@
 <template>
-  <div class="start-menu">
-    <div class="start-menu-content">
-      <h1>Welcome!</h1>
-      <p>USE</p>
-      <div class="arrows">
-        <div class="left-arrow">
-          <img src="../assets/leftArrow.png" alt="">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-2"></div>
+      <div class="col-lg-6 start-menu-content col-md-8">
+        <h1>Welcome!</h1>
+        <p>USE</p>
+        <div class="instructions row">
+          <div class="col-lg-5 col-md-5">
+            <div class="arrows">
+              <div class="left-arrow">
+                <img src="../assets/leftArrow.png" alt="">
+              </div>
+              <div class="right-arrow">
+                <img src="../assets/rightArrow.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2">
+              <p id="or">OR</p>
+          </div>
+          <div class="col-lg-5 col-md-5">
+            <div class="mouse">
+              <img src="../assets/mouse.png" alt="">
+            </div>
+          </div>
         </div>
-        <div class="right-arrow">
-          <img src="../assets/rightArrow.png" alt="">
-        </div>
+        <p id="toScorePoints">TO SCORE POINTS</p>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-2">
+
+            </div>
+            <div class="col-lg-4 col-md-8">
+              <router-link to="/game">
+                <div class="start-button">
+                  <p>START</p>
+                </div>
+              </router-link>
+            </div>
+            <div class="col-lg-4 col-md-2">
+
+            </div>
+          </div>
+
       </div>
-      <p id="or">OR</p>
-      <div class="mouse">
-        <img src="../assets/mouse.png" alt="">
-      </div>
-      <p id="toScorePoints">TO SCORE POINTS</p>
-      <router-link to="/game">
-        <div class="start-button">
-          <p>START</p>
-      </div>
-      </router-link>
+      <div class="col-lg-3 col-md-2"></div>
     </div>
+
     <div class="start-menu-opacity"></div>
   </div>
 </template>
@@ -54,9 +79,6 @@ export default {
 .start-menu-content {
   z-index: 100;
   color: white;
-  position: fixed;
-  left: 25%;
-  right: 25%;
   font-family: 'Exo 2', sans-serif;
   text-align: center;
 }
@@ -143,9 +165,6 @@ export default {
 }
 
 .mouse {
-  position: absolute;
-  right: 25%;
-  top: 115%;
   animation: mouseMove linear 10s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -200,29 +219,11 @@ export default {
   }
 }
 
-#or {
-  position: absolute;
-  left: 47%;
-}
-
-#toScorePoints {
-  position: absolute;
-  top: 170%;
-  left: 32%;
-}
-
-.arrows{
-  position: absolute;
-  top: 125%;
-  left: 20%;
-}
-
 .start-button {
-  position: absolute;
   border: 1px solid white;
-  width: 25%;
-  top: 230%;
-  left: 38%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-top: 15%;
 }
 
 .start-button:hover {
@@ -231,4 +232,23 @@ export default {
   cursor: pointer;
 }
 
+#toScorePoints{
+  position: relative;
+  margin-top: 15%;
+}
+
+.instructions{
+  margin-top: 20%;
+}
+
+.arrows{
+  position: relative;
+  left:25%;
+}
+
+.mouse{
+  position: relative;
+  left: 10%;
+  bottom: 5%;
+}
 </style>
