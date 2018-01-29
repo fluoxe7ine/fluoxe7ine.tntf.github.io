@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-2"></div>
-      <div class="col-lg-6 start-menu-content col-md-8">
+      <div class="col-lg-6 start-menu-content col-md-8 col-xs-12">
         <h1>Welcome!</h1>
-        <p>USE</p>
+        <p id="use">USE</p>
         <div class="instructions row">
           <div class="col-lg-5 col-md-5">
             <div class="arrows">
@@ -238,17 +238,74 @@ export default {
 }
 
 .instructions{
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .arrows{
   position: relative;
   left:25%;
+  top:20%;
 }
 
 .mouse{
   position: relative;
   left: 10%;
-  bottom: 5%;
+}
+
+h1{
+  margin-top: 10%;
+}
+
+#use{
+  margin-top: 10%;
+}
+
+@media (max-width: 768px){
+  .arrows {
+    left: 40%;
+  }
+  .mouse {
+    left: 45%;
+  }
+  .start-button{
+
+  }
+}
+
+@media (max-width: 960px){
+  .mouse {
+    left: 0;
+  }
+  #toScorePoints{
+    margin-top: 10%;
+  }
+  .start-button{
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 425px){
+  .arrows {
+    left: 37%;
+  }
+  .mouse {
+    left: 45%;
+  }
+  .start-button{
+
+  }
+}
+
+@media (max-width: 321px){
+  .arrows {
+    left: 33%;
+  }
+  .mouse {
+    left: 42%;
+  }
+  .start-button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 </style>

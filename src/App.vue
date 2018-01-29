@@ -28,4 +28,9 @@ A:visited {
    text-decoration: none;
   }
 
+A:hover {
+   color: white;
+   text-decoration: none;
+  }
+
 </style>
