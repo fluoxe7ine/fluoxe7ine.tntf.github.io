@@ -48,23 +48,23 @@ export default {
   },
   created () {
     this.generatingMatch()
-    // this.timer()
+    this.timer()
     document.onkeydown = (e) => {
       if (event.keyCode === 39) this.buttonRightClick()
       if (event.keyCode === 37) this.buttonLeftClick()
     }
   },
   methods: {
-    // timer () {
-    //   this.timerId = window.setInterval(() => {
-    //     this.lineWidth--
-    //     if (this.lineWidth === 0) {
-    //       clearInterval(this.timerId)
-    //       this.$root.score = this.counter
-    //       this.$router.push('/restart')
-    //     }
-    //   }, 13)
-    // },
+    timer () {
+      this.timerId = window.setInterval(() => {
+        this.lineWidth--
+        if (this.lineWidth === 0) {
+          clearInterval(this.timerId)
+          this.$root.score = this.counter
+          this.$router.push('/restart')
+        }
+      }, 13)
+    },
     buttonLeftClick () {
       if (this.match === true) {
         this.counter++
@@ -245,6 +245,10 @@ export default {
 
   .time-line{
     left: 0;
+  }
+
+  h1{
+    font-size: 150%;
   }
 }
 </style>

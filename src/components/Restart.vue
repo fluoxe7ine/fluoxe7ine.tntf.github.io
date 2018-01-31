@@ -1,13 +1,21 @@
 <template lang="html">
-  <div class="main">
+  <div class="container">
     <div class="start-menu-opacity">
 
     </div>
-    <div class="content">
-      <h1>YOU LOSE</h1>
-      <p id="score">Your score: {{this.$root.score}}</p>
-      <p id="try-again">TRY AGAIN?</p>
-      <router-link to="/game"><div class="restart-button"></div></router-link>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+
+      </div>
+      <div class="content col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h1>YOU LOSE</h1>
+        <p id="score">Your score: {{this.$root.score}}</p>
+        <p id="try-again">TRY AGAIN?</p>
+        <router-link to="/game"><div class="restart-button"></div></router-link>
+      </div>
+      <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+
+      </div>
     </div>
   </div>
 </template>
@@ -20,11 +28,7 @@ export default {
 
 <style lang="css" scoped>
 .content{
-  position: fixed;
-  width:50%;
-  top:0;
-  bottom: 0;
-  left: 25%;
+
   font-family: 'Exo 2',sans-serif;
   color: white;
   text-align: center;
