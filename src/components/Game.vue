@@ -147,7 +147,6 @@ export default {
   padding-bottom: 4%;
 }
 
-
 .right-button{
   margin-top: 10%;
   border: 2px solid red;
