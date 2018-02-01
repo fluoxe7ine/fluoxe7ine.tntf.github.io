@@ -5,7 +5,7 @@ const express = require('express'),
       mongoose = require('mongoose');
 
       mongoose.Promise = global.Promise;
-      mongoose.connect('mongodb://tntf-admin:admin@ds046677.mlab.com:46677/highscores')
+      mongoose.connect('mongodb://fluoxe7ine:tntf-password@highscores-shard-00-00-ipfju.mongodb.net:27017,highscores-shard-00-01-ipfju.mongodb.net:27017,highscores-shard-00-02-ipfju.mongodb.net:27017/highscores?ssl=true&replicaSet=highscores-shard-0&authSource=admin')
       .then(() => {console.log('Database is connected') },
       err => { console.log('Can not connect to the database'+ err)}
       );
