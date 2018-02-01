@@ -62,6 +62,7 @@ export default {
           clearInterval(this.timerId)
           this.$root.score = this.counter
           this.$router.push('/restart')
+          this.addScore()
         }
       }, 13)
     },
