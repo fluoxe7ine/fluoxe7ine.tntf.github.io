@@ -22,7 +22,25 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      highscore: {
+        name: 'Sasha',
+        value: this.$root.score
+      }
+    }
+  },
+  created () {
+    this.createScore()
+  },
+  methods: {
+    createScore () {
+      let uri = 'http://localhost:3000/highscore'
+      this.axios.post(uri, this.highscore)
+        .then(response => console.log(response))
+        .catch(e => console.log(e))
+    }
+  }
 }
 </script>
 

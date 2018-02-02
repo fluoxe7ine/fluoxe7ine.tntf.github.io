@@ -12,20 +12,24 @@ err => { console.log('Can not connect to the database'+ err)}
 );
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true
+}));
+
 app.listen(3000, function(){
       console.log('Listening on port 3000');
 });
 
 app.post('/highscore', (req, res) => {
   let score = new Highscore({
-      name: req.body.name,
-      value: req.body.value
+    name: req.body.name,
+    value: req.body.value
   });
-
-  score
-    .save()
-    .then(result => console.log(result))
-    .catch(err => console.log(`Looks like error: ${err}`));
-  res.send({score});
+      score
+      .save()
+      .then(score => res.send(score))
+      .catch(err => res.send(err));
 });
