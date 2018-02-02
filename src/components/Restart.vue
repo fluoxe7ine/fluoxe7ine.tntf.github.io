@@ -14,32 +14,25 @@
         <router-link to="/game"><div class="restart-button"></div></router-link>
       </div>
       <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
-
+        <Highscores />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Highscores from './Highscores.vue'
 export default {
   data () {
     return {
-      highscore: {
-        name: 'Sasha',
-        value: this.$root.score
-      }
+
     }
   },
-  created () {
-    this.createScore()
+  components:{
+    Highscores
   },
   methods: {
-    createScore () {
-      let uri = 'http://localhost:3000/highscore'
-      this.axios.post(uri, this.highscore)
-        .then(response => console.log(response))
-        .catch(e => console.log(e))
-    }
+
   }
 }
 </script>

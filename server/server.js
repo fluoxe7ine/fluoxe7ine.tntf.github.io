@@ -33,3 +33,10 @@ app.post('/highscore', (req, res) => {
       .then(score => res.send(score))
       .catch(err => res.send(err));
 });
+
+app.get('/highscore', (req, res) => {
+  Highscore.find({}).sort({value: -1}).limit(10).exec(function(err, docs) {
+    if (err) res.send ('something wrong ' + err);
+    res.json(docs);
+});
+});
