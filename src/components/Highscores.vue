@@ -25,7 +25,7 @@ export default {
   methods: {
     async importTable () {
       try {
-        let uri = 'http://localhost:3000/highscore'
+        let uri = '/highscore'
         await this.axios.post(uri, this.highscore)
           .then(response => console.log(response))
         await this.axios.get(uri)
