@@ -3,6 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       cors = require('cors'),
       mongoose = require('mongoose');
+      serveStatic = require('serve-static');
 const Highscore = require('./models/highscore');
 
 mongoose.Promise = global.Promise;
@@ -14,14 +15,11 @@ err => { console.log('Can not connect to the database'+ err)}
 const app = express();
 app.use(bodyParser.json());
 
-app.use(cors({
-  origin: 'http://localhost:8080',
-  credentials: true
-}));
-
 app.listen(3000, function(){
       console.log('Listening on port 3000');
 });
+
+app.use(serveStatic(__dirname + "/dist"));
 
 app.post('/highscore', (req, res) => {
   let score = new Highscore({

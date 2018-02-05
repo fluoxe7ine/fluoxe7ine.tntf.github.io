@@ -66,6 +66,7 @@ export default {
   width: 50px;
   height: 50px;
   margin: auto;
+  margin-bottom: 10%;
 }
 
 .restart-button:hover{

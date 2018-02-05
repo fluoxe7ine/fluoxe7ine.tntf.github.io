@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="highscore">
     <h1>HIGHSCORES</h1>
     <div v-for="score in scores" class="scores">
       <p>{{ score.name }}: {{score.value}}</p>
@@ -56,4 +56,5 @@ h1 {
   margin-top: 10%;
   text-align: center;
 }
+
 </style>

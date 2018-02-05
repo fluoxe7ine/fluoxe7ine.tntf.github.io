@@ -8,7 +8,9 @@
         <h1>Type your name here:</h1>
         <input v-model="value" type="text" name="" value="">
         <router-link to="/game">
-          <button type="button" name="button" @click="addingName()">SUBMIT</button>
+          <div class="submit-button" @click="addingName()">
+            <p>SUBMIT</p>
+          </div>
         </router-link>
       </div>
       <div class="col-lg-3 col-md-3 hidden-sm">
@@ -55,6 +57,7 @@ input{
   padding-bottom: 2%;
   font-family: 'Exo 2', sans-serif;
   outline: none;
+  float: left;
 }
 
 input:hover{
@@ -65,14 +68,21 @@ input:focus{
   border: green 2px solid;
 }
 
-button {
-    background: transparent;
-    color: white;
-    height: 20%;
+.submit-button {
+  height: 20%;
+  width: 20%;
+  border: solid 2px white;
+  float:left;
+  margin-top: 5%;
+  margin-left: 2%;
+  font-family: 'Exo 2';
+  text-align: center;
+  padding-top: 2%;
+  font-size: 130%;
 }
 
-button:hover{
-  border: green 2px solid;
+.submit-button:hover {
+  border: solid 2px green;
 }
 
 .start-menu-opacity {
@@ -84,5 +94,11 @@ button:hover{
   height: 100%;
   opacity: 0.7;
   z-index: -11;
+}
+
+@media (max-width: 940px) {
+  .submit-button {
+    font-size: 100%;
+  }
 }
 </style>

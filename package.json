@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "devstart": "nodemon server/server.js"
+    "devstart": "nodemon server.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -20,6 +20,7 @@
     "fs": "0.0.1-security",
     "mongoose": "^5.0.3",
     "nodemon": "^1.14.11",
+    "serve-static": "^1.13.1",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1",
