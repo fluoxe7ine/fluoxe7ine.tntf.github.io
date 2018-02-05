@@ -5,6 +5,7 @@
   "author": "fluoxe7ine <locbkolocb@gmail.com>",
   "private": true,
   "scripts": {
+    "build": "node build/build.js",
     "start": "node server.js"
   },
   "dependencies": {
