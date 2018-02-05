@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import StartMenu from '@/components/StartMenu'
 import Game from '@/components/Game'
 import Restart from '@/components/Restart'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -21,8 +22,12 @@ export default new Router({
     {
       path: '/restart',
       name: 'Restart',
-      component: Restart,
-      props: true
+      component: Restart
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

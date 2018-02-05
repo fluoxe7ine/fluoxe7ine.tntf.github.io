@@ -15,7 +15,8 @@ new Vue({
   el: '#app',
   router,
   data: {
-    score: 0
+    score: 0,
+    name: 'Guest'
   },
   components: { App },
   template: '<App/>'

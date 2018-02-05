@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="">
-    <p v-for="score in table">{{ score }}</p>
+    <h1>HIGHSCORES</h1>
+    <div v-for="score in scores" class="scores">
+      <p>{{ score.name }}: {{score.value}}</p>
+    </div>
   </div>
 </template>
 
@@ -10,32 +13,29 @@ export default {
     return {
       scores: [],
       table: [],
-      highscore:{
-        name: 'Sasha',
+      highscore: {
+        name: this.$root.name,
         value: this.$root.score
       }
     }
   },
   created () {
-    this.createScore()
     this.importTable()
   },
   methods: {
-    importTable () {
-      let uri = 'http://localhost:3000/highscore'
-      this.axios.get(uri)
-        .then(response => {
-          this.scores = response.data
-          this.table = this.scores.map((score) => `${score.name}: ${score.value}`)
-          console.log(this.table);
-        })
-        .catch(err => console.log(err))
-    },
-    createScore () {
-      let uri = 'http://localhost:3000/highscore'
-      this.axios.post(uri, this.highscore)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
+    async importTable () {
+      try {
+        let uri = 'http://localhost:3000/highscore'
+        await this.axios.post(uri, this.highscore)
+          .then(response => console.log(response))
+        await this.axios.get(uri)
+          .then(response => {
+            this.scores = response.data
+            console.log(this.scores)
+          })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
@@ -43,6 +43,17 @@ export default {
 
 <style lang="css">
 p {
-  color: white
+  color: white;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.scores{
+  margin-top: 10%;
+  text-align: center;
 }
 </style>

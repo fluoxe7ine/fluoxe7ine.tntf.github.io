@@ -32,7 +32,7 @@
 
             </div>
             <div class="col-lg-4 col-md-8">
-              <router-link to="/game">
+              <router-link to="/login">
                 <div class="start-button">
                   <p>START</p>
                 </div>
