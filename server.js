@@ -15,9 +15,8 @@ err => { console.log('Can not connect to the database'+ err)}
 const app = express();
 app.use(bodyParser.json());
 
-app.listen(3000, function(){
-      console.log('Listening on port 3000');
-});
+var port = process.env.PORT || 5000;
+app.listen(port);
 
 app.use(serveStatic(__dirname + "/dist"));
 
